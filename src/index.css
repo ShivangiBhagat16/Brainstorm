@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Helvetica Neue';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #bbbbbb;
+  font-size: 16px;
+  position: relative;
+  height: 100vh;
+
+  &::before {
+    content:" ";
+    position: absolute;
+    background: url(../public/assets/ink\ watermark\ black.svg) no-repeat bottom left;
+    opacity: 0.1;
+    width: 166px;
+    height: 270px;
+    left: 5%;
+    bottom: 50px;
+    background-size: cover;
+  }
+}
+.main-container {
+  width: 940px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+.container {
+  width: 840px;
+  margin: 0 auto;
+}
+.inner-container {
+  width: 700px;
+  margin: 0 auto;
+}
+.founder::before {
+  content:" ";
+  position: absolute;
+  background: url(../public/assets/add\ person.svg) no-repeat bottom left;
+  width: 37px;
+  height: 33px;
+  left: 0;
+  top:-3px;
+}
+.notes-list::-webkit-scrollbar {
+  display: none;
+}
+input {
+  color: #cccccc;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+/* input placeholder css */
+input::placeholder {
+  color: #cccccc;
+}
+input:focus, :focus-visible{
+  outline: 0;     /* oranges! yey */
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #cccccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:    #cccccc;
+ opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:    #cccccc;
+ opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color:    #cccccc;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+ color:    #cccccc;
+}
+::placeholder { /* Most modern browsers support this now. */
+ color:    #cccccc;
+}
