@@ -11,7 +11,7 @@ function Note({ note, onHandleDelete, onHandlePin }) {
       <button
         className={
           (showPin ? "visible" : "invisible") +
-          " col-span-1 flex h-full items-start hover:transition-all group-hover/notelist:visible"
+          " col-span-1 flex h-full items-start pt-1.5 hover:transition-all group-hover/notelist:visible"
         }
         onClick={() => {
           setShowPin(!showPin);
@@ -38,7 +38,7 @@ function Note({ note, onHandleDelete, onHandlePin }) {
         </div>
       </div>
       <button
-        className="invisible col-span-1 ms-auto group-hover/notelist:visible"
+        className="invisible col-span-1 ms-auto pt-1.5 group-hover/notelist:visible"
         onClick={() => onHandleDelete(note.id)}
       >
         <img src="assets/delete.svg" alt="Pin" />
