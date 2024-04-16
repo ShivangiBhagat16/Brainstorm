@@ -1,8 +1,9 @@
+import React from "react";
 import AddNote from "./AddNote";
 
 function Header() {
   return (
-    <>
+    <React.Fragment>
       <div className="inner-container mb-5 flex justify-between">
         <h1 className="text-5xl font-bold text-dark-grey">Notes</h1>
         <AddNote />
@@ -19,7 +20,7 @@ function Header() {
           />
         </h3>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 
