@@ -30,7 +30,7 @@ function AddedCollaborators({
             Go Back to Add Collaborators
           </h6>
         </div>
-        <div className="col-span-6">
+        <div className="col-span-6 text-right">
           <button
             className="rounded-lg border border-[#4484a8] px-16 py-3.5 text-2xl uppercase text-[#4484a8] transition-all hover:bg-[#4484a8] hover:text-[#fff]"
             onClick={handleInvite}

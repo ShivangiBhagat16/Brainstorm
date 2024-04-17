@@ -15,7 +15,7 @@ function InviteWithMsg({
           placeholder="Write a message here... "
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="h-[410px] border-0 text-2xl text-[#666]"
+          className="h-[450px] border-0 text-2xl text-[#666]"
         />
       </div>
       <AddedCollaborators

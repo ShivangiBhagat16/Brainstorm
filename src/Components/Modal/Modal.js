@@ -1,13 +1,16 @@
-function Modal({ children, toggleModal, customClassMainContainer }) {
+function Modal({ children, toggleModal, resetAll }) {
   return (
     <div className="modal">
       <div onClick={toggleModal} className="overlay"></div>
       <div className="modal-content relative flex">
-        <div className={`main-container ${customClassMainContainer}`}>
+        <div className="main-container">
           {children}
           <button
             className="close-modal text-3xl text-[#bdbdbd]"
-            onClick={toggleModal}
+            onClick={() => {
+              toggleModal();
+              resetAll();
+            }}
           >
             X
           </button>

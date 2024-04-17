@@ -9,6 +9,7 @@ function AddCollaboratorsPage({
   customClassGoBackToAddCollaborator,
   setInviteWithMsg,
   handleInvite,
+  activeCollaborator,
 }) {
   return (
     <div className="inner-container">
@@ -28,6 +29,7 @@ function AddCollaboratorsPage({
         collaborators={collaborators}
         addedCollaboratorHandle={addedCollaboratorHandle}
         changeCollaboratorRole={changeCollaboratorRole}
+        activeCollaborator={activeCollaborator}
       />
       <AddedCollaborators
         addedColoborators={addedColoborators}

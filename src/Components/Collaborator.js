@@ -1,19 +1,15 @@
-import { useState } from "react";
-
 function Collaborator({
   collaborator,
   addedCollaboratorHandle,
   changeCollaboratorRole,
+  activeCollaborator,
 }) {
-  //const [activeAddedCollaborator, setActiveAddedCollaborator] = useState(false);
-  //console.log("not active");
   return (
     <li key={collaborator.id} className="flex gap-3">
       <div
         className="w-[60px] flex-none cursor-pointer"
         onClick={() => {
-          //console.log("active");
-          //setActiveAddedCollaborator((active) => !active);
+          activeCollaborator(collaborator.id);
           addedCollaboratorHandle(
             collaborator.id,
             collaborator.addedAsCollaborator,
@@ -23,8 +19,7 @@ function Collaborator({
         <img
           src="assets/collaborator-img.png"
           alt={collaborator.name}
-          className={`rounded-full `}
-          //className={`rounded-full ${activeAddedCollaborator ? "active" : "noactive"}`}
+          className={`rounded-full ${collaborator.addedAsCollaborator ? "active" : "noactive"}`}
         />
       </div>
       <div className="w-9/12 flex-auto">

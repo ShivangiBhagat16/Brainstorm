@@ -1,4 +1,4 @@
-function InvitesSent({ addMoreCollaboratorsFromInvites }) {
+function InvitesSent({ resetAll }) {
   return (
     <div className="flex h-full flex-col items-center justify-center text-center">
       <img src="assets/send.png" alt="Send" className="mx-auto" />
@@ -6,10 +6,7 @@ function InvitesSent({ addMoreCollaboratorsFromInvites }) {
         Your invites have been sent
       </h6>
 
-      <h6
-        className="cursor-pointer text-2xl text-[#005a8e]"
-        onClick={addMoreCollaboratorsFromInvites}
-      >
+      <h6 className="cursor-pointer text-2xl text-[#005a8e]" onClick={resetAll}>
         Add more collaborators
       </h6>
     </div>
