@@ -43,10 +43,6 @@ function AddCollaborators({ toggleModal }) {
   const [addMoreCollaborators, setAddMoreCollaborators] = useState(false);
   const [inviteWithMsg, setInviteWithMsg] = useState(false);
   const [message, setMessage] = useState("");
-  // console.log("invite status = " + invite);
-  // console.log("addMoreCollaborators status = " + addMoreCollaborators);
-  // console.log("inviteWithMsg = " + inviteWithMsg);
-  // console.log("main render");
 
   function changeCollaboratorRole(val, id) {
     const objIndex = collaborators.findIndex(
@@ -73,20 +69,29 @@ function AddCollaborators({ toggleModal }) {
     setInvite((invite) => !invite);
   }
 
-  function addMoreCollaboratorsFromInvites() {
-    setAddMoreCollaborators((add) => !add);
-    setInvite((invite) => !invite);
-    setInviteWithMsg(false);
-    setAddMoreCollaborators((add) => !add);
-  }
-
   function addMoreCollaboratorsFromMsg() {
     setInviteWithMsg((msg) => !msg);
   }
 
+  function activeCollaborator(id) {
+    var selectedId = collaborators.filter((c) => c.id === id);
+    selectedId.addedAsCollaborator = !selectedId.addedAsCollaborator;
+    setCollaborators([...collaborators]);
+  }
+
+  function resetAll() {
+    collaborators.map((c) => (c.addedAsCollaborator = false));
+    setCollaborators([...collaborators]);
+    setAddedCollaborators([]);
+    setInvite(false);
+    setInviteWithMsg(false);
+    setAddMoreCollaborators(false);
+    setMessage("");
+  }
+
   return (
     <React.Fragment>
-      <Modal toggleModal={toggleModal}>
+      <Modal toggleModal={toggleModal} resetAll={resetAll}>
         {(!invite && !inviteWithMsg) || addMoreCollaborators ? (
           <AddCollaboratorsPage
             collaborators={collaborators}
@@ -97,24 +102,14 @@ function AddCollaborators({ toggleModal }) {
             customClassGoBackToAddCollaborator="hidden"
             setInviteWithMsg={setInviteWithMsg}
             handleInvite={handleInvite}
-            addMoreCollaboratorsFromInvites={addMoreCollaboratorsFromInvites}
+            activeCollaborator={activeCollaborator}
           />
         ) : invite ? (
-          <InvitesSent
-            collaborators={collaborators}
-            addedCollaboratorHandle={addedCollaboratorHandle}
-            changeCollaboratorRole={changeCollaboratorRole}
-            toggleModal={toggleModal}
-            customClassGoBackToAddCollaborator="hidden"
-            addMoreCollaborators={addMoreCollaborators}
-            setAddMoreCollaborators={setAddMoreCollaborators}
-            addMoreCollaboratorsFromInvites={addMoreCollaboratorsFromInvites}
-          />
+          <InvitesSent resetAll={resetAll} />
         ) : (
           inviteWithMsg && (
             <InviteWithMsg
               addedColoborators={addedColoborators}
-              //setInvite={setInvite}
               handleInvite={handleInvite}
               addMoreCollaboratorsFromMsg={addMoreCollaboratorsFromMsg}
               customClassGoBackToAddCollaborator="text-[#a8a8a8] mt-8"
